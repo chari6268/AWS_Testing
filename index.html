@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text to Code</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    #inputField, #submitButton {
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    #textView {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Srinivasa Chari</h1>
+
+  <input type="text" id="inputField" placeholder="Enter Code">
+  <button id="submitButton" onclick="displayText()">Submit</button>
+  <div id="textView"></div>
+
+  <script>
+    function displayText() {
+      var enteredText = document.getElementById('inputField').value;
+      
+      var charArray = enteredText.toUpperCase().split('');
+        var keys = new Map();
+        var j = 0;
+        for (var i = 65; i <= 90; i++) {
+            var letter = String.fromCharCode(i);
+            keys.set(letter,j++);
+        }
+        var result=" ";
+        charArray.forEach(function(char) {
+            result+=keys.get(char);
+        });
+
+      document.getElementById('textView').innerText = "Entered Code Value is : " + result;
+    }
+  </script>
+
+</body>
+</html>
